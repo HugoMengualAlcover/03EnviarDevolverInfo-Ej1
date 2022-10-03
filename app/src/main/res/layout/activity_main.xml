@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnPalabrasYCarac"
+        android:id="@+id/btnPalabras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="Contar palabras y caracteres"
+        android:onClick="onClickBotones"
+        android:text="Contar palabras"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFraseMain" />
@@ -28,5 +29,16 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCaracteres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:onClick="onClickBotones"
+        android:text="Contar Caracteres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPalabras" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

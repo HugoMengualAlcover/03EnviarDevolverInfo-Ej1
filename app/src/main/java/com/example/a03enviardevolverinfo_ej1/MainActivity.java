@@ -11,31 +11,37 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtFrase;
-    private Button btnPC;
+    private Button btnPalab;
+    private Button btnCarac;
 
+    public static final int PALABRAS = 1;
+    public static final int CARACTERES = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicilizaVistas();
-
-        btnPC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String password = txtFrase.getText().toString();
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("FRASE", txtFrase.getText().toString());
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
     }
 
 
     private void inicilizaVistas() {
         txtFrase = findViewById(R.id.txtFraseMain);
-        btnPC = findViewById(R.id.btnPalabrasYCarac);
+        btnPalab = findViewById(R.id.btnPalabras);
+        btnCarac = findViewById(R.id.btnCaracteres);
+    }
+
+    //En el view asignar esta funcion al la propiedad onCLick del boton
+    public void onClickBotones(View boton){
+        String frase = txtFrase.getText().toString();
+        if (!frase.isEmpty()) {
+            Bundle bundle = new Bundle();
+            bundle.putString("FRASE", frase);
+
+            bundle.putInt("OPERACION",boton.getId());
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 }
